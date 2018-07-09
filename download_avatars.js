@@ -12,13 +12,20 @@ function getRepoContributors(repoOwner, repoName, cb){
     }
   };
 
+  console.log(secrets.GITHUB_TOKEN);
+
   request(options, function(err, res, body){
-    cb(err, body);
+    var bodyJSON = JSON.parse(body);
+    cb(err, bodyJSON);
   });
 }
 
 getRepoContributors("jquery", "jquery", function(err, result) {
   console.log("Errors:", err);
-  console.log("Result:", result);
+  for(var item in result){
+    console.log(result[item].avatar_url);
+  }
+
 });
+
 
