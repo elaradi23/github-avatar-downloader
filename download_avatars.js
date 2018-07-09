@@ -34,7 +34,6 @@ if(!repoOwner || !repoName){
       //The file path will use the 'login' field as a name for the image file
       downloadImageByURL(result[item].avatar_url, result[item].login);
     }
-
   });
 }
 
